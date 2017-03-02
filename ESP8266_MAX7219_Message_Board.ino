@@ -1,5 +1,5 @@
-/* ESP8266 plus MAX7219 LED Matrix that displays messages revecioved via a WiFi connection using a Web Server
- Provides an automous display of messages
+/* ESP8266 plus MAX7219 LED Matrix that displays messages received via a WiFi connection using a Web Server
+ Provides an automous display of messages received on an LED Matrix display which is scrolled
  The MIT License (MIT) Copyright (c) 2017 by David Bird.
  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, but not sub-license and/or 
@@ -21,7 +21,7 @@ See more at http://dsbird.org.uk
 #include <Max72xxPanel.h>
 #include <time.h>
 
-int pinCS = D4; // Attach CS to this pin, DIN to MOSI and CLK to SCK (cf http://arduino.cc/en/Reference/SPI )
+int pinCS                      = D4; // Attach CS to this pin, DIN to MOSI and CLK to SCK
 int numberOfHorizontalDisplays = 4;
 int numberOfVerticalDisplays   = 1;
 char time_value[20];
