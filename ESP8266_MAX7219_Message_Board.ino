@@ -18,7 +18,7 @@ See more at http://dsbird.org.uk
 #include <WiFiManager.h>     // https://github.com/tzapu/WiFiManager
 #include <SPI.h>
 #include <Adafruit_GFX.h>
-#include <Max72xxPanel.h>
+#include <Max72xxPanel.h>    //https://github.com/markruys/arduino-Max72xxPanel
 #include <time.h>
 
 int pinCS                      = D4; // Attach CS to this pin, DIN to MOSI and CLK to SCK
