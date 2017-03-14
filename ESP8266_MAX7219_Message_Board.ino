@@ -16,6 +16,7 @@ See more at http://dsbird.org.uk
 #include <ESP8266WebServer.h>
 #include <WiFiClient.h>
 #include <WiFiManager.h>     // https://github.com/tzapu/WiFiManager
+#include <DNSServer.h>
 #include <SPI.h>
 #include <Adafruit_GFX.h>
 #include <Max72xxPanel.h>    //https://github.com/markruys/arduino-Max72xxPanel
