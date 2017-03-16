@@ -19,7 +19,7 @@
 #include <Adafruit_GFX.h>
 #include <Max72xxPanel.h>
 
-const char *ssid     = "Message";
+const char *ssid     = "Message Board";
 const char *password = "";
 
 int pinCS = D4; // Attach CS to this pin, DIN to MOSI and CLK to SCK (cf http://arduino.cc/en/Reference/SPI )
