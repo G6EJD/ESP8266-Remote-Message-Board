@@ -65,13 +65,13 @@ void setup() {
   Serial.println(F("Use this URL to connect: http://")); Serial.println(WiFi.localIP().toString()+"/");// Print the IP address
 
   //----------------------------------------------------------------------
+  server.on("/",GetMessage);
   server.begin(); Serial.println(F("Webserver started..."));
   matrix.setIntensity(2);    // Use a value between 0 and 15 for brightness
   matrix.setRotation(0, 1);  // The first display is position upside down
   matrix.setRotation(1, 1);  // The first display is position upside down
   matrix.setRotation(2, 1);  // The first display is position upside down
   matrix.setRotation(3, 1);  // The first display is position upside down
-  server.on("/", GetMessage);
   wait    = 25;
   message = "Message Board (C) D.L.Bird 2017";
   display_message(message); // Display the message
