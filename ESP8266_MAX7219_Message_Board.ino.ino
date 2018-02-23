@@ -66,13 +66,13 @@ void setup() {
   // At this stage the WiFi manager will have successfully connected to a network, or if not will try again in 180-seconds
   Serial.println(F("WiFi connected..."));
   //----------------------------------------------------------------------
+  server.on("/", GetMessage); 
   server.begin(); Serial.println(F("Webserver started...")); // Start the webserver  configTime(0 * 3600, 0, "pool.ntp.org", "time.nist.gov");
   matrix.setIntensity(2);    // Use a value between 0 and 15 for brightness
   matrix.setRotation(0, 1);  // The first display is position upside down
   matrix.setRotation(1, 1);  // The first display is position upside down
   matrix.setRotation(2, 1);  // The first display is position upside down
-  matrix.setRotation(3, 1);  // The first display is position upside down
-  server.on("/", GetMessage);
+  matrix.setRotation(3, 1);  // The first display is position upside down 
   wait    = 40;
   message = "Message Board (C) D.L.Bird 2017";
   display_message(message); // Display the message
