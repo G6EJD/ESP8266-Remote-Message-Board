@@ -4,3 +4,5 @@ A wifi connected message board to display messages of your choice on an LED matr
 Connect to the ESP8266 web-server, enter your message and it is displayed in a scrolling banner on the attached LED Matrix display.
 
 Display type: MAX7219 4 serial connected 8x8 LED matrix units
+
+NOTE: The LED matrix displays come in many different formats, so you may need to rotate your displays differently to mine! The code has provision for that.
