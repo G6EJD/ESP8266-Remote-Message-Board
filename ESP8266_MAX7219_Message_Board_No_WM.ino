@@ -116,7 +116,7 @@ void GetMessage() {
   String IPaddress = WiFi.localIP().toString();
   webpage += F("<h3>Enter the message to be displayed then Enter</h3><br>");
   webpage += "<form action=\"http://"+IPaddress+"\" method=\"POST\">";
-  webpage += F("Enter the required message text:<br><br><input type='text' size='50' name='message' value='' ");
+  webpage += F("Enter the required message text:<br><br><input type='text' size='50' name='message' value='' >");
   webpage += F("</form><br/><br/>");
   append_page_footer();
   server.send(200, "text/html", webpage); // Send a response to the client to enter their inputs, if needed, Enter=defaults
