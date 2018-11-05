@@ -68,7 +68,7 @@ void setup() {
   Serial.print(F("Use this URL to connect: http://")); Serial.println(WiFi.softAPIP().toString() + "/"); // Print the IP address
 
   //----------------------------------------------------------------------
-  server.on("/",GetMEssage);
+  server.on("/",GetMessage);
   server.begin(); Serial.println(F("Webserver started..."));
   matrix.setIntensity(2);    // Use a value between 0 and 15 for brightness
   matrix.setRotation(0, 1);  // The first display is position upside down
