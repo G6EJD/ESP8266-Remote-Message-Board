@@ -1,4 +1,4 @@
-/* ESP plus MAX7219 LED Matrix that displays messages received via a WiFi connection using a Web Server
+/* ESP32 plus MAX7219 LED Matrix that displays messages received via a WiFi connection using a Web Server
   #######################################################################################################################################
   This software, the ideas and concepts is Copyright (c) David Bird 2020. All rights to this software are reserved.
 
@@ -19,20 +19,11 @@
 */
 
 //################# LIBRARIES ##########################
-#ifdef ESP8266
- #include <ESP8266WiFi.h>
- #include <ESP8266WebServer.h>
- int    pinCS = D4;                      // Attach CS to this pin, DIN to MOSI and CLK to SCK
- //     MOSI  = D7;                      // Attach MOSI on Display to this pin
- //     CLK   = D5;                      // Attach CLK on Display to this pin
-#else
- #include <WiFi.h>
+#include <WiFi.h>
 #include "ESPAsyncWebServer.h"          // Built-in
- int    pinCS = 5;                      // Attach CS to this pin, DIN to MOSI and CLK to SCK
- //     MOSI  = 23;                     // Attach MOSI on display to this pin
- //     MOSI  = 18;                     // Attach CLK on display to this pin
-#endif
-
+int    pinCS = 5;                       // Attach CS to this pin, DIN to MOSI and CLK to SCK
+//     MOSI  = 23;                      // Attach MOSI on display to this pin
+//     CLK   = 18;                      // Attach CLK on display to this pin
 
 #include <DNSServer.h>
 #include <SPI.h>
@@ -46,27 +37,16 @@ String message, webpage;
 
 //################# DISPLAY CONNECTIONS ################
 // LED Matrix Pin -> ESP8266 Pin
-// Vcc            -> 3v  (3V on NodeMCU 3V3 on WEMOS)
-// Gnd            -> Gnd (G on NodeMCU)
-// DIN            -> D7  (Same Pin for WEMOS)
-// CS             -> D4  (Same Pin for WEMOS)
-// CLK            -> D5  (Same Pin for WEMOS)
+// Vcc            -> 3v  (3V3 on ESP32)
+// Gnd            -> Gnd (Gnd/G on ESP32)
+// DIN            -> MOSI
+// CS             -> pinCS
+// CLK            -> CLK
 
 //################ PROGRAM SETTINGS ####################
-String version = "v2.0";       // Version of this program
-
-#ifdef ESP8266
-
-ESP8266WebServer server(80); // Start server on port 80 (default for a web-browser, change to your requirements, e.g. 8080 if your Router uses port 80
-// To access server from the outside of a WiFi network e.g. ESP8266WebServer server(8266) add a rule on your Router that forwards a
-// connection request to http://your_network_ip_address:8266 to port 8266 and view your ESP server from anywhere.
-// Example http://yourhome.ip:8266 will be directed to http://192.168.0.40:8266 or whatever IP address your router gives to this server
-
-#else
+String version = "v3.0";       // Version of this program
 
 AsyncWebServer server(80); // Start server on port 80 (default for a web-browser, change to your requirements, e.g. 8080 if your Router uses port 80
-
-#endif
 
 Max72xxPanel matrix = Max72xxPanel(pinCS, numberOfHorizontalDisplays, numberOfVerticalDisplays);
 
