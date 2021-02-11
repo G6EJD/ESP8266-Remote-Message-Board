@@ -132,6 +132,7 @@ void getmessageinput() {
       String client_response = server.arg(i);
       if (Argument_Name == "message") message = client_response;
     }
+    Serial.println(message);
     GetMessage();
   }
 }
