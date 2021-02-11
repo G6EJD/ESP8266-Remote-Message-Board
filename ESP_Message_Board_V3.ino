@@ -125,18 +125,6 @@ void GetMessage() {
   append_page_footer();
 }
 
-void getmessageinput() {
-  if (server.args() > 0 ) { // Arguments were received
-    for ( uint8_t i = 0; i < server.args(); i++ ) {
-      String Argument_Name   = server.argName(i);
-      String client_response = server.arg(i);
-      if (Argument_Name == "message") message = client_response;
-    }
-    Serial.println(message);
-    GetMessage();
-  }
-}
-
 void append_page_header() {
   webpage  = "<!DOCTYPE html><html lang='en'>";
   webpage += "<head>";
